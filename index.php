@@ -1,3 +1,10 @@
+<?php
+require "functions.php";
+
+$articles = query("SELECT * FROM article");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,59 +21,21 @@
   </header>
   <main>
     <div class="action-container">
-      <a href="#" class="new-article">Create Article</a>
+      <a href="./add_article.php" class="new-article">Create Article</a>
     </div>
     <div class="article-container">
-      <div class="article">
+      <?php foreach($articles as $article):?>
+        <div class="article">
         <div class="img">
-          <img src="./mountain.jpg" alt="">
+          <img src="./img/<?= $article["image"]?>.jpg" alt="">
         </div>
         <div class="text">
-          <h2>Fuji Mountain</h2>
-          <p>Mount Fuji, also known as Fuji-san, is the highest mountain in Japan</p>
+          <h2><?= $article["title"] ?></h2>
+          <p><?= $article["content"] ?></p>
           <a href="#">Read More</a>
         </div>
       </div>
-      <div class="article">
-        <div class="img">
-          <img src="./mountain.jpg" alt="">
-        </div>
-        <div class="text">
-          <h2>Fuji Mountain</h2>
-          <p>Mount Fuji, also known as Fuji-san, is the highest mountain in Japan</p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div class="article">
-        <div class="img">
-          <img src="./mountain.jpg" alt="">
-        </div>
-        <div class="text">
-          <h2>Fuji Mountain</h2>
-          <p>Mount Fuji, also known as Fuji-san, is the highest mountain in Japan, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, laboriosam!</p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div class="article">
-        <div class="img">
-          <img src="./mountain.jpg" alt="">
-        </div>
-        <div class="text">
-          <h2>Fuji Mountain</h2>
-          <p>Mount Fuji, also known as Fuji-san, is the highest mountain in Japan</p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
-      <div class="article">
-        <div class="img">
-          <img src="./mountain.jpg" alt="">
-        </div>
-        <div class="text">
-          <h2>Fuji Mountain</h2>
-          <p>Mount Fuji, also known as Fuji-san, is the highest mountain in Japan</p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </main>
 </body>
