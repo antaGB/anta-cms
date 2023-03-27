@@ -30,7 +30,7 @@
 </head>
 <body>
   <h1>Add New Article</h1>
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <div class="data">
       <label for="author">Author</label>
       <input type="text" name="author" id="author">

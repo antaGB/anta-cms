@@ -26,15 +26,19 @@ $articles = query("SELECT * FROM article");
     <div class="article-container">
       <?php foreach($articles as $article):?>
         <div class="article">
-        <div class="img">
-          <img src="./img/<?= $article["image"]?>.jpg" alt="">
+          <div class="img">
+            <img src="./img/<?= $article["image"]?>" alt="">
+          </div>
+          <div class="text">
+            <h2><?= $article["title"] ?></h2>
+            <p><?= $article["content"] ?></p>
+            <a href="./articles/article<?= $article['id'] ?>.php?id=<?= $article['id']?>">Read More</a>
+          </div>
+          <div class="action">
+            <a id="delete" href="./delete.php?id=<?= $article['id'] ?>">D</a>
+            <a id="edit" href="./edit.php?id=<?= $article['id'] ?>">E</a>
+          </div>
         </div>
-        <div class="text">
-          <h2><?= $article["title"] ?></h2>
-          <p><?= $article["content"] ?></p>
-          <a href="#">Read More</a>
-        </div>
-      </div>
       <?php endforeach; ?>
     </div>
   </main>
